@@ -1,0 +1,88 @@
+/* Add this style to your component's CSS file */
+.scrollable-dropdown {
+  max-height: 150px; /* Set the maximum height for the dropdown */
+  overflow-y: auto; /* Add a scrollbar when content exceeds the height */
+  
+}
+
+.square-album-image {
+  width: 500px; /* Adjust the width as needed */
+  height: 500px; /* Adjust the height as needed */
+  object-fit: cover; /* Maintain the aspect ratio and cover the container */
+}
+
+
+.btn {
+  background-color: #292825; /* Gold color for button background */
+  color: #fff; /* White text */
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 4px;
+  margin-right: 2px;
+  margin-top: -45px; /* Adjusted margin-top to move the button closer to the dropdown */
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  color: #cca300; /* Darker shade on hover for the button, adjust as needed */
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #292825; /* Gold color for the header */
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px #7a602f; /* Gold outline for the header text */
+}
+
+.centered-container h2 {
+  font-size: 2.5rem;
+  color: #292825; /* Gold color for the header */
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px #7a602f; /* Gold outline for the header text */
+  align-items: center;
+  text-align: center;
+}
+
+label {
+  font-size: 15px;
+  color: #292825; /* Gold color for the header */
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px #7a602f; /* Gold outline for the header text */
+ 
+}
+
+input[type="text"] {
+  padding: 10px;
+  font-size: 1rem;
+  border: 2px solid #292825; /* Gold color for input border */
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+select {
+  padding: 10px;
+  font-size: 1rem;
+  border: 2px solid #292825; /* Gold color for select border */
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.square-album-image {
+ 
+  height: auto;
+    display: block;
+    margin: 0 auto;
+    border: 15px solid hsl(45, 94%, 50%); /* Gold color for the image border */
+    border-style: double;
+}
+
+.artist-image {
+  width: 500px; /* Adjust the width as needed */
+  height: 500px; /* Adjust the height as needed */
+  object-fit: cover; /* Maintain the aspect ratio and cover the container */
+  border-radius: 50%; /* Make it a circle */
+  border: 15px solid hsl(45, 94%, 50%); /* Gold color for the image border */
+  border-style: double; /* Double border style */
+}

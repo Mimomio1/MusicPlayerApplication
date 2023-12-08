@@ -1,0 +1,78 @@
+<!-- ... Your existing header code ... -->
+<div class="navbar navbar-dark bg-dark shadow-sm">
+  <div class="container">
+    <a [routerLink]="['/home']" [queryParams]="{ id: userId, accessToken: accessToken }"role="button" class="navbar-brand d-flex align-items-center">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+      <strong>Home</strong>
+    </a>
+    <a [routerLink]="['/playlist']" [queryParams]="{ id: userId, accessToken: accessToken }"role="button" class="navbar-brand d-flex align-items-center">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+      <strong>Playlist</strong>
+    </a>
+    <a [routerLink]="['/reviews']" [queryParams]="{ id: userId, accessToken: accessToken }"role="button" class="navbar-brand d-flex align-items-center">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+      <strong>Reviews</strong>
+    </a>
+    <a [routerLink]="['/artists']" [queryParams]="{ id: userId, accessToken: accessToken }"role="button" class="navbar-brand d-flex align-items-center">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+      <strong>Artists</strong>
+    </a>
+    <a [routerLink]="['/song']" [queryParams]="{ id: userId, accessToken: accessToken }"role="button" class="navbar-brand d-flex align-items-center">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+      <strong>Song</strong>
+    </a>
+    <a [routerLink]="['/albums']" [queryParams]="{ id: userId, accessToken: accessToken }"role="button" class="navbar-brand d-flex align-items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <strong>Albums</strong>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</div>
+<div class="centered-container">
+  <div style="padding: 40px; text-align: center;">
+    <h1>Search For Artist Albums</h1>
+    <label for="searchSong">Search Artist:</label>
+    <input type="text" id="searchSong" [(ngModel)]="searchQuery" (input)="searchArtists()" placeholder="Enter artist's name">
+
+    <!-- Display artist image when an artist is selected -->
+    <div *ngIf="searchQuery && selectedArtistId" style="margin-top: 10px;">
+      <h2>{{ getArtistName(selectedArtistId) }}</h2>
+      <img [src]="getArtistImage(selectedArtistId)" alt="Artist Image" class="artist-image">
+    </div>
+
+    <div *ngIf="searchResults.length > 0" class="scrollable-dropdown" style="margin-top: 10px;">
+      <label for="searchResultsDropdown">Search Results:</label>
+      <select id="searchResultsDropdown" [(ngModel)]="selectedArtistId" (change)="onArtistSelected()">
+        <option *ngFor="let result of searchResults" [value]="result.id">{{ result.name }}</option>
+      </select>
+    </div>
+  </div>
+
+  <div style="padding: 40px; text-align: center;">
+    <!-- Button to get albums -->
+    <button class="btn" (click)="getAlbums()">Get Albums</button>
+  </div>
+
+<!-- Dropdown for album results -->
+<div *ngIf="albumResults.length > 0" style="text-align: center; margin-top: 10px;">
+  <label for="albumResultsDropdown">Album Results:</label>
+  <select id="albumResultsDropdown" [(ngModel)]="selectedAlbumId" (change)="onAlbumSelected()">
+    <option *ngFor="let album of albumResults" [value]="album.id">{{ album.name }}</option>
+  </select>
+
+  <!-- Display album image when an album is selected -->
+  <div *ngIf="selectedAlbumId && getAlbumImage(selectedAlbumId)" style="margin-top: 10px;">
+    <h2>{{ getAlbumName(selectedAlbumId) }}</h2>
+    <img [src]="getAlbumImage(selectedAlbumId)" alt="Album Image" class="square-album-image">
+  </div>
+
+  <!-- Button to add albums -->
+  <button *ngIf="selectedAlbumId && getAlbumImage(selectedAlbumId)" class="btn" (click)="saveAlbums(selectedAlbumId ? [selectedAlbumId] : [])" style="margin-top: 10px;">Add Albums</button>
+
+  <!-- Show the "Create A Review" button when an album is selected -->
+  <button *ngIf="selectedAlbumId" class="btn" (click)="navigateToReviews()" style="margin-top: 10px;">Create A Review</button>
+</div>
+
+<!-- ... The rest of your HTML ... -->

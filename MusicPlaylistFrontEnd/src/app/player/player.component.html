@@ -1,0 +1,11 @@
+<div id="player" class="disappear" style="flex-direction: row;">
+    <div (click)="togglePlay()" class="clickable">
+        <button *ngIf="!isPlaying" style="size: 60px; padding: 20px;" class="clickable">
+        Play Song
+        </button>
+        
+        <button *ngIf="isPlaying" style="size: 60px; padding: 20px;" class="clickable">
+        Pause Song
+        </button>
+    </div>
+</div>

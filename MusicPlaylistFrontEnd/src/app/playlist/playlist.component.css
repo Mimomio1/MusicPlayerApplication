@@ -1,0 +1,288 @@
+/* Playlist Creation */
+.PlaylistCreation {
+  padding: 40px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.center-div {
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* 100% of the viewport height */
+}
+
+.PlaylistCreation h1 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.PlaylistCreation label {
+  display: block;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.PlaylistCreation input {
+  width: 70%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.PlaylistCreation button {
+  background-color: #1e87f0;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  margin-top: 20px; /* Add margin to the top */
+}
+
+.PlaylistCreation button:hover {
+  background-color: #1e87f0;
+}
+
+/* Update Playlist */
+.UpdatePlaylist {
+  padding: 40px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.UpdatePlaylist h1 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.UpdatePlaylist label {
+  display: block;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.UpdatePlaylist input,
+.UpdatePlaylist select {
+  width: 70%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.UpdatePlaylist button {
+  background-color: #2196f3;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+  margin-top: 20px; /* Add margin to the top */
+}
+
+.UpdatePlaylist button:hover {
+  background-color: #1e87f0;
+}
+
+/* Search Songs */
+.SearchSongs {
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.SearchSongs h1 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.SearchSongs label {
+  display: block;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.SearchSongs input,
+.SearchSongs select {
+  width: 70%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.SearchSongs button {
+  background-color: #ff9800;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  margin-top: 20px; /* Add margin to the top */
+}
+
+.SearchSongs button:hover {
+  background-color: #ff8800;
+}
+
+/* Image Upload */
+.ImageUpload {
+  padding: 40px;
+  background-color: #e91e63;
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.ImageUpload h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.ImageUpload label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.ImageUpload input {
+  width: 70%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.ImageUpload button {
+  background-color: #fff;
+  color: #e91e63;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-top: 20px; /* Add margin to the top */
+}
+
+.ImageUpload button:hover {
+  background-color: #e0e0e0;
+  color: #c2185b;
+}
+
+/* Playlist Selection Box */
+.playlist-selection {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  text-align: center;
+}
+
+.playlist-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.playlist-item {
+  cursor: pointer;
+  text-align: center;
+}
+
+.playlist-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.playlist-item span {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.playlist-actions {
+  margin-top: 20px;
+}
+
+/* Common Styles for Buttons */
+button {
+  cursor: pointer;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  margin-top: 20px; /* Add margin to the top */
+}
+
+button:hover {
+  background-color: #333;
+  color: white;
+}
+
+.playlist-list tbody tr:hover {
+  background-color: #333; /* Change the background color on hover */
+  cursor: pointer; /* Change the cursor to a pointer on hover */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow on hover */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Add smooth transitions */
+}
+
+
+.music-table {
+  background-color: #f5f5f5; /* Light gray background color */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle lift */
+}
+
+.music-table th, .music-table td {
+  text-align: center; /* Center-align text in table cells */
+}
+
+.music-table-row:hover {
+  background-color: #e0e0e0; /* Lighter gray background on hover */
+}
+
+.center-image {
+  text-align: center; /* Center-align content within the table cell */
+}
+
+/* Optional: Add more styles as needed for a music-oriented look */
+
+.center-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 800px; /* Adjust the max-width as needed */
+}

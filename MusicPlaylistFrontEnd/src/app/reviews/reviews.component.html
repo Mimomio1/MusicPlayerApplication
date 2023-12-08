@@ -1,0 +1,104 @@
+<header data-bs-theme="dark">
+  <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="container">
+      <a [routerLink]="['/home']" [queryParams]="{ id: userId, accessToken: accessToken }"role="button" class="navbar-brand d-flex align-items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <strong>Home</strong>
+      </a>
+      <a [routerLink]="['/playlist']" [queryParams]="{ id: userId, accessToken: accessToken }"role="button" class="navbar-brand d-flex align-items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <strong>Playlist</strong>
+      </a>
+      <a [routerLink]="['/reviews']" [queryParams]="{ id: userId, accessToken: accessToken }"role="button" class="navbar-brand d-flex align-items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <strong>Reviews</strong>
+      </a>
+      <a [routerLink]="['/artists']" [queryParams]="{ id: userId, accessToken: accessToken }"role="button" class="navbar-brand d-flex align-items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <strong>Artists</strong>
+      </a>
+      <a [routerLink]="['/song']" [queryParams]="{ id: userId, accessToken: accessToken }"role="button" class="navbar-brand d-flex align-items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <strong>Song</strong>
+      </a>
+      <a [routerLink]="['/albums']" [queryParams]="{ id: userId, accessToken: accessToken }"role="button" class="navbar-brand d-flex align-items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <strong>Albums</strong>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
+</header>
+<div style="padding: 40px;">
+  <h1>Manage Reviews</h1>
+  <form (ngSubmit)="performCreateOrUpdateReview()">
+    <div class="form-group">
+      <label for="reviewInput1">Title:</label>
+      <input type="text" class="form-control" id="reviewInput1" [(ngModel)]="reviewName" name="reviewName" placeholder="Enter review title">
+    </div>
+    <div class="form-group">
+      <label for="reviewInput2">Entity Id:</label>
+      <input type="text" class="form-control" id="reviewInput2" [(ngModel)]="entityId" [ngModelOptions]="{standalone: true}" placeholder="Enter Id">
+    </div>
+    <div class="form-group">
+      <label for="reviewInput3">Review Id:</label>
+      <input type="text" class="form-control" id="reviewInput3" [(ngModel)]="reviewId" [ngModelOptions]="{standalone: true}" placeholder="Enter Id">
+    </div>
+    <div class="form-group">
+      <label for="reviewInput4">Rating:</label>
+      <div class="star-rating">
+        <i class="fa fa-star" (click)="setRating(1)" [class.selected]="reviewRating >= 1"></i>
+        <i class="fa fa-star" (click)="setRating(2)" [class.selected]="reviewRating >= 2"></i>
+        <i class="fa fa-star" (click)="setRating(3)" [class.selected]="reviewRating >= 3"></i>
+        <i class="fa fa-star" (click)="setRating(4)" [class.selected]="reviewRating >= 4"></i>
+        <i class="fa fa-star" (click)="setRating(5)" [class.selected]="reviewRating >= 5"></i>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="reviewInput5">Music Review Options:</label>
+      <select class="form-control" id="reviewInput5" [(ngModel)]="entityType" [ngModelOptions]="{standalone: true}">
+        <option value="Songs">Songs</option>
+        <option value="Albums">Albums</option>
+      </select>
+    </div>
+    <div class="form-group" style="margin-bottom: 20px;">
+      <label for="reviewInput6">Comment</label>
+      <textarea class="form-control" id="reviewInput6" [(ngModel)]="reviewComment" name="reviewComment" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" style="margin-right: 20px;" (click)="setAction('create')">Submit</button>
+    <button type="submit" class="btn btn-primary" style="margin-right: 20px;" (click)="setAction('update')" [routerLink]="['/reviews']" [queryParams]="{ userId: userId, entityId: entityId, entityType: entityType, accessToken, reviewId: reviewId }">Update</button>
+    <button type="submit" class="btn btn-primary" (click)="setAction('delete')" [routerLink]="['/reviews']" [queryParams]="{ userId: userId, entityId: entityId, entityType: entityType, accessToken: accessToken, reviewId: reviewId }">Delete</button>     
+  </form>
+</div>
+
+<div style="padding: 40px;">
+  <h1>Reviews:</h1>
+
+</div>
+
+<section *ngIf="reviews.length > 0" style="padding:30px">
+  <div *ngFor="let review of reviews">
+    <div class="d-flex flex-start mb-4">
+      <img class="rounded-circle shadow-1-strong me-3" src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).webp" alt="avatar" width="65" height="65" />
+      <div class="card w-100">
+        <div class="card-body p-4">
+          <div class="">
+            <h5>{{ review.name }}</h5>
+            <p class="small">{{ review.timestamp }}</p>
+            <p>{{ review.comment }}</p>
+
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center">
+                <div class="star-rating">
+                  <i class="fa fa-star" style="color:gold" (click)="setRating(1)" [class.selected]="reviewRating >= 1">{{review.rating}}</i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
